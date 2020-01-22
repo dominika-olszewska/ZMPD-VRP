@@ -1,0 +1,144 @@
+:root {
+  --blue: #2ebaae;
+  --primary: #195f88;
+  --grey: #3c3b3b;
+  --lightgrey: #f4f4f4;
+  --border: #e3e3e3;
+  --transparent: rgba(160, 160, 160, 0.65);
+  --width: 75%;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--grey);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  background-color: var(--lightgrey);
+}
+.wrapper {
+  display: grid;
+  grid-template-rows: 60px 140px 520px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "nav"
+    "form"
+    "images"
+    "info";
+}
+
+.nav {
+  grid-area: nav;
+  width: 100%;
+  text-align: center;
+  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.699);
+  box-shadow: 2px 3px 8px rgba(173, 173, 173, 0.4);
+}
+
+.form {
+  width: var(--width);
+  margin: 0 auto;
+  grid-area: form;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+select {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.425);
+  background-color: rgba(255, 255, 255, 0.699);
+  height: 40px;
+  width: 120px;
+  margin-right: 20px;
+}
+
+select:focus {
+  outline-color: rgb(238, 179, 53);
+}
+input {
+  height: 40px;
+  padding: 4px;
+  margin-right: 20px;
+  border: 1px solid rgba(31, 31, 31, 0.425);
+  background-color: rgba(255, 255, 255, 0.699);
+}
+.url {
+  width: 600px;
+}
+.trucks {
+  width: 120px;
+}
+
+input:focus {
+  outline-color: rgb(238, 179, 53);
+  background-color: white;
+}
+button {
+  height: 40px;
+  width: 120px;
+}
+
+button {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.699);
+  border: 1px solid rgba(31, 31, 31, 0.425);
+  color: var(--grey);
+  text-transform: uppercase;
+  padding: 5px;
+  border-radius: 0.2em;
+  display: inline-block;
+  outline: none;
+  transition-property: background-color;
+  transition-property: color;
+  transition-property: border;
+}
+
+button:hover {
+  background-color: rgb(238, 179, 53);
+  color: white;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  border: none;
+}
+
+.images {
+  width: var(--width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  grid-area: images;
+}
+img{
+    max-height: 440px;
+}
+.info {
+  border-top: 3px solid rgba(31, 31, 31, 0.425);
+  width: var(--width);
+  margin: 50px auto 0;
+  grid-area: info;
+  display: flex;
+  justify-content: center;
+}
+
+.basic {
+  padding-right: 20px;
+}
