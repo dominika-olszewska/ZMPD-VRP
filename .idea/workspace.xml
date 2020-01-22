@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ccbf8326-8c49-4947-bac9-a4501c56e2d2" name="Default Changelist" comment="" />
+    <list default="true" id="ccbf8326-8c49-4947-bac9-a4501c56e2d2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parseData.py" beforeDir="false" afterPath="$PROJECT_DIR$/parseData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vrp.py" beforeDir="false" afterPath="$PROJECT_DIR$/vrp.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,14 +42,15 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\DOMINIKA\STUDIA MAGISTERSKIE\2 SEMESTR\zaawawnowane met podej decyzjji\python" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\DOMINIKA\STUDIA MAGISTERSKIE\2 SEMESTR\zaawawnowane met podej decyzjji\python\static\img" />
       <recent name="C:\DOMINIKA\STUDIA MAGISTERSKIE\2 SEMESTR\zaawawnowane met podej decyzjji\python\static\css" />
       <recent name="C:\DOMINIKA\STUDIA MAGISTERSKIE\2 SEMESTR\zaawawnowane met podej decyzjji\python" />
       <recent name="C:\DOMINIKA\STUDIA MAGISTERSKIE\2 SEMESTR\zaawawnowane met podej decyzjji\python\static" />
       <recent name="C:\DOMINIKA\STUDIA MAGISTERSKIE\2 SEMESTR\zaawawnowane met podej decyzjji\python\templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\DOMINIKA\STUDIA MAGISTERSKIE\2 SEMESTR\zaawawnowane met podej decyzjji\python" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -236,7 +243,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

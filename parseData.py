@@ -2,9 +2,9 @@ def parse_file(file_string, set, vehicles):
     print('SET: ', set, vehicles)
     if set == 'LIU-ET-AL':
         file_string_split = file_string.split('\r\n')
-    elif set == 'SET-E' or set == 'SET-B' or set == 'SET-A'or set == 'SET-F' or set == 'SET-M':
+    elif set == 'SET-E' or set == 'SET-B' or set == 'SET-A' or set == 'SET-F' or set == 'SET-M':
         file_string_split = file_string.split('\n')
-    elif set == 'UCHOA':
+    elif set == 'UCHOA' or set == "ARNOLD":
         without_tab = file_string.replace('\t', ' ')
         file_string_split = without_tab.split('\r\n')
     print('converted file', file_string_split)
@@ -24,7 +24,7 @@ def parse_file(file_string, set, vehicles):
             without_coma = vehicles.replace(',', '')
             print('trucks str', without_coma)
             vehicles = int(without_coma)
-        if set == 'LIU-ET-AL' or set == 'UCHOA':
+        if set == 'LIU-ET-AL' or set == 'UCHOA' or set == 'ARNOLD':
             vehicles = int(vehicles)
 
     capacity = [capacity] * vehicles
@@ -36,7 +36,6 @@ def parse_file(file_string, set, vehicles):
     else:
         points_string = file_string_split[index_coord:index_coord + dimension - 1]
         demands_string = file_string_split[index_demand:index_demand + dimension - 1]
-
 
     point_int = []
     for point in points_string:

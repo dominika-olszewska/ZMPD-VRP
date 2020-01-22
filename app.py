@@ -20,7 +20,10 @@ def upload():
         strategy = request.form.get('strategy')
         vehicles = request.form['trucks']
         output = urlopen(url).read()
-        file_string = (output.decode('utf-8'))
+        if set != "ARNOLD":
+            file_string = (output.decode('utf-8'))
+        else:
+            file_string = output.decode('ISO 8859-1')
         vehicle_distance, vehicle_load, text, filename, route_arr = vrp.cvrp(file_string, set, vehicles, strategy)
         name, capacity, dimension, point_int, demand_int, trucks = parseData.parse_file(file_string, set, vehicles)
 

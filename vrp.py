@@ -55,7 +55,7 @@ def cvrp(data, set, vehicles, strategy):
         True,  # start cumul to zero
         'Capacity')
 
-    # Setting first solution heuristic.
+    # Setting solution heuristic.
     search_parameters = pywrapcp.DefaultRoutingSearchParameters()
 
     if strategy == 'first-solution':
@@ -66,8 +66,12 @@ def cvrp(data, set, vehicles, strategy):
             routing_enums_pb2.LocalSearchMetaheuristic.AUTOMATIC)
         search_parameters.time_limit.seconds = 20
     else:
-        search_parameters.first_solution_strategy = (
-            routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
+        search_parameters.local_search_metaheuristic = (
+            routing_enums_pb2.LocalSearchMetaheuristic.AUTOMATIC)
+        search_parameters.time_limit.seconds = 25
+        # search_parameters.local_search_metaheuristic = (
+        #     routing_enums_pb2.LocalSearchMetaheuristic.TABU_SEARCH)
+        # search_parameters.time_limit.seconds = 20
 
     # Solve the problem.
     assignment = routing.SolveWithParameters(search_parameters)
