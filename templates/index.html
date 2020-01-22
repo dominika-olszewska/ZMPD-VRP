@@ -25,6 +25,11 @@
             <option value="LIU-ET-AL">Liu et al</option>
             <option value="UCHOA">Uchoa et al</option>
         </select>
+        <select name="strategy">
+            <option value="">Choose strategy</option>
+            <option value="first-solution">First solution strategy</option>
+            <option value="local-search">Local search</option>
+        </select>
         <input type="text" name="trucks" placeholder="Number of trucks" class="input trucks">
         <input type="text" name="url" placeholder="Paste here URL of your set" class="input url">
         <button type="submit" class="button">Solve</button>
@@ -38,7 +43,8 @@
 
     <div class="info">
         <div class="basic">
-            <h3>Solution info:</h3>
+            <h3>Solution data:</h3>
+            <p>Solution strategy: {{ strategy }}</p>
             <p>Number of customers: {{ customers }}</p>
             <p>Number of vehicles: {{ vehicles }}</p>
             <p>Capacity: {{ capacity }}</p>

@@ -10,10 +10,11 @@ import data as modelData
 import printSolution as print
 import getRoutes
 
-def cvrp(data, set, trucks):
+
+def cvrp(data, set, vehicles, strategy):
     """Solve the CVRP problem."""
     # Instantiate the data problem.
-    data, name = modelData.create_data_model(data, set, trucks)
+    data, name = modelData.create_data_model(data, set, vehicles)
 
     # Create the routing index manager.
     manager = pywrapcp.RoutingIndexManager(len(data['distance_matrix']),
@@ -56,12 +57,17 @@ def cvrp(data, set, trucks):
 
     # Setting first solution heuristic.
     search_parameters = pywrapcp.DefaultRoutingSearchParameters()
-    # search_parameters.first_solution_strategy = (
-    #     routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
 
-    search_parameters.local_search_metaheuristic = (
-        routing_enums_pb2.LocalSearchMetaheuristic.AUTOMATIC)
-    search_parameters.time_limit.seconds = 20
+    if strategy == 'first-solution':
+        search_parameters.first_solution_strategy = (
+            routing_enums_pb2.FirstSolutionStrategy.AUTOMATIC)
+    elif strategy == 'local-search':
+        search_parameters.local_search_metaheuristic = (
+            routing_enums_pb2.LocalSearchMetaheuristic.AUTOMATIC)
+        search_parameters.time_limit.seconds = 20
+    else:
+        search_parameters.first_solution_strategy = (
+            routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
 
     # Solve the problem.
     assignment = routing.SolveWithParameters(search_parameters)
@@ -74,5 +80,3 @@ def cvrp(data, set, trucks):
     route_arr = print.print_routes(routes)
     plot.create_plot(data['points'], routes, vehicle_distance, name)
     return vehicle_distance, vehicle_load, text, name, route_arr
-
-

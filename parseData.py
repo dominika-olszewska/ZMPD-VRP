@@ -1,5 +1,5 @@
-def parse_file(file_string, set, num_trucks):
-    print('SET: ', set, num_trucks)
+def parse_file(file_string, set, vehicles):
+    print('SET: ', set, vehicles)
     if set == 'LIU-ET-AL':
         file_string_split = file_string.split('\r\n')
     elif set == 'SET-E' or set == 'SET-B' or set == 'SET-A'or set == 'SET-F' or set == 'SET-M':
@@ -20,14 +20,14 @@ def parse_file(file_string, set, num_trucks):
         if "DEMAND_SECTION" in i:
             index_demand = file_string_split.index(i) + 1
         if "trucks: " in i and (set == 'SET-E' or set == "SET-B" or set == "SET-A" or set == 'SET-F' or set == 'SET-M'):
-            trucks_str = i.split("trucks: ", 1)[1][:2]
-            without_coma = trucks_str.replace(',', '')
+            vehicles = i.split("trucks: ", 1)[1][:2]
+            without_coma = vehicles.replace(',', '')
             print('trucks str', without_coma)
-            trucks = int(without_coma)
+            vehicles = int(without_coma)
         if set == 'LIU-ET-AL' or set == 'UCHOA':
-            trucks = int(num_trucks)
+            vehicles = int(vehicles)
 
-    capacity = [capacity] * trucks
+    capacity = [capacity] * vehicles
     points_string = []
     demands_string = []
     if set != 'LIU-ET-AL':
@@ -52,5 +52,5 @@ def parse_file(file_string, set, num_trucks):
     print('dimension', dimension)
     print('point_int', point_int)
     print('demand_int', demand_int)
-    print('trucks', trucks)
-    return name, capacity, dimension, point_int, demand_int, trucks
+    print('vehicles', vehicles)
+    return name, capacity, dimension, point_int, demand_int, vehicles

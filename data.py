@@ -28,10 +28,10 @@ def get_distance_matrix(points):
     return distance_matrix
 
 
-def create_data_model(file_string, set, trucks):
+def create_data_model(file_string, set, vehicles):
     """Stores the data for the problem."""
     data = {}
-    name, capacity, dimension, points, demands, vehicles = parseData.parse_file(file_string, set, trucks)
+    name, capacity, dimension, points, demands, vehicles = parseData.parse_file(file_string, set, vehicles)
     distance_matrix = get_distance_matrix(points)
     data['distance_matrix'] = distance_matrix
     data['demands'] = demands

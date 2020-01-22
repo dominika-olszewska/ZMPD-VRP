@@ -17,15 +17,16 @@ def upload():
         dataSend = True
         url = request.form['url']
         set = request.form.get('set')
-        trucks = request.form['trucks']
+        strategy = request.form.get('strategy')
+        vehicles = request.form['trucks']
         output = urlopen(url).read()
         file_string = (output.decode('utf-8'))
-        # file_string = output.decode('ISO 8859-1')
-        vehicle_distance, vehicle_load, text, filename, route_arr = vrp.cvrp(file_string, set, trucks)
-        name, capacity, dimension, point_int, demand_int, trucks = parseData.parse_file(file_string, set, trucks)
+        vehicle_distance, vehicle_load, text, filename, route_arr = vrp.cvrp(file_string, set, vehicles, strategy)
+        name, capacity, dimension, point_int, demand_int, trucks = parseData.parse_file(file_string, set, vehicles)
 
         return render_template('index.html', dataSend=dataSend, file_string=text, filename=filename,
-                               customers=dimension, vehicles=trucks, capacity=capacity[0], route_arr=route_arr, set=set,
+                               customers=dimension, vehicles=vehicles, capacity=capacity[0], route_arr=route_arr,
+                               set=set, strategy=strategy,
                                trucks=trucks, opt_distance=sum(vehicle_distance))
     return render_template('index.html')
 
